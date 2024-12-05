@@ -51,7 +51,7 @@ jobs:
       # Step 6: Build and start containers using Docker Compose
       - name: Set up Docker Compose
         run: |
-          docker-compose -f docker-compose.yml up --build -d
+          docker-compose up -d
 
       # Optional: Step 7: Verify the running containers
       - name: Check Docker container status
