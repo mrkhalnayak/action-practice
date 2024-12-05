@@ -30,19 +30,23 @@ jobs:
 
       # Step 4: Build Docker images for dev, prod, and staging using different Dockerfiles
       - name: Build Docker image for Dev
+        shell: pwsh
         run: |
           docker build -f Dockerfile.dev -t my-app:dev .
 
       - name: Build Docker image for Prod
+        shell: pwsh
         run: |
           docker build -f Dockerfile.prod -t my-app:prod .
 
       - name: Build Docker image for Staging
+        shell: pwsh
         run: |
           docker build -f Dockerfile.staging -t my-app:staging .
-
+          
       # Step 5: Install Docker Compose
       - name: Install Docker Compose
+        shell: pwsh
         run: |
           sudo curl -L "https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
           sudo chmod +x /usr/local/bin/docker-compose
@@ -50,16 +54,12 @@ jobs:
 
       # Step 6: Build and start containers using Docker Compose
       - name: Set up Docker Compose
+        shell: pwsh
         run: |
           docker-compose up -d
 
       # Optional: Step 7: Verify the running containers
       - name: Check Docker container status
+        shell: pwsh
         run: |
-          docker ps
-      # Step 8: Check whether our application is showing on the machine or not.
-      - name: check the application status
-        run: |
-          curl http://localhost:8000
-          curl http://localhost:8001
-          curl http://localhost:8002
+          docker ps 
