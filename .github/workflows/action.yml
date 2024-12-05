@@ -32,17 +32,17 @@ jobs:
       - name: Build Docker image for Dev
         shell: pwsh
         run: |
-          docker build -f Dockerfile.dev -t my-app:dev .
+          docker build -t my-app:dev -f Dockerfile.dev .
 
       - name: Build Docker image for Prod
         shell: pwsh
         run: |
-          docker build -f Dockerfile.prod -t my-app:prod .
+          docker build -t my-app:prod -f Dockerfile.prod .
 
       - name: Build Docker image for Staging
         shell: pwsh
         run: |
-          docker build -f Dockerfile.staging -t my-app:staging .
+          docker build -t my-app:staging -f Dockerfile.staging .
           
       # Step 5: Install Docker Compose
       - name: Install Docker Compose
