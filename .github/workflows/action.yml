@@ -57,16 +57,3 @@ jobs:
       - name: Check Docker container status
         run: |
           docker ps
-
-      # Optional: Step 8: Push Docker images to Docker Hub
-      - name: Push Docker image to Docker Hub (Dev)
-        run: |
-          docker push my-app:dev
-          
-      - name: Push Docker image to Docker Hub (Prod)
-        run: |
-          docker push my-app:prod
-          
-      - name: Push Docker image to Docker Hub (Staging)
-        run: |
-          docker push my-app:staging
