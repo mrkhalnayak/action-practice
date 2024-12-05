@@ -57,3 +57,9 @@ jobs:
       - name: Check Docker container status
         run: |
           docker ps
+      # Step 8: Check whether our application is showing on the machine or not.
+      - name: check the application status
+        run: |
+          curl http://localhost:8000
+          curl http://localhost:8001
+          curl http://localhost:8002
