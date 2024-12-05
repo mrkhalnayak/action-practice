@@ -10,7 +10,7 @@ on:
 
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest  # Define the environment for the job
+    runs-on: self-hosted  # Define the environment for the job
 
     steps:
       # Step 1: Checkout the code from the repository
