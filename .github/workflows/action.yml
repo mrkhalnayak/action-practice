@@ -25,26 +25,12 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       # Step 4: Build Docker images for dev, prod, and staging using different Dockerfiles
-      - name: Build Docker image for Dev
-        uses: docker/build-push-action@v6
-        with: 
-          context: .
-          run: |
-            docker build -t my-app:dev -f Dockerfile.dev .
-
-      - name: Build Docker image for Prod
-        uses: docker/build-push-action@v6
-        with: 
-          context: .
-          run: |
-            docker build -t my-app:prod -f Dockerfile.prod .
-
       - name: Build Docker image for Staging
         uses: docker/build-push-action@v6
         with: 
           context: .
           run: |
-            docker build -t my-app:staging -f Dockerfile.staging .
+            docker build -t my-app:staging .
           
       # Step 5: Install Docker Compose
       - name: Install Docker Compose
