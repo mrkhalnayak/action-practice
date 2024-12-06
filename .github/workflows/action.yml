@@ -10,7 +10,7 @@ on:
 
 jobs:
   build_and_deploy:
-    runs-on: self-hosted  # Define the environment for the job
+    runs-on: ubuntu  # Define the environment for the job
 
     steps:
       # Step 1: Checkout the code from the repository
