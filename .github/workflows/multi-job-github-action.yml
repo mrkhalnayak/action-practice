@@ -79,10 +79,5 @@ jobs:
       - name: Step 4 - Building our web application with maven.
         run: echo mvn -B package --file pom.xml
 
-      - name: Step 5 - Windows execution polocy.
-        run: | 
-          echo "Get the windows execution polocy.
-          Get-ExecutionPolocy
-
-      - name: Step 6 - get the environment variable for windows
+      - name: Step 5 - get the environment variable for windows
         run: env
