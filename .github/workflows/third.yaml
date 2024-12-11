@@ -52,6 +52,8 @@ jobs:
           echo 8. who is running this script
           whoami
           echo 9. how is the disk lait out?
-          df
+          df -h
           echo 10. what environment variable are available?
           env
+          echo 11. check how much memory the runner has to execute the command inside it.
+          free -h 
