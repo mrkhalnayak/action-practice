@@ -30,7 +30,7 @@ jobs:
       - name: Step 3 - Set up the JDK 
         uses: actions/setup-java@v4
         with:
-          java-version: '1.8'
+          java-version: '23.0.1+11'
           distribution: 'temurin'
           server-id: github
           server-username: GITHUB_ACTOR
