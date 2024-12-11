@@ -30,7 +30,7 @@ jobs:
       - name: Step 3 - Set up the JDK 
         uses: actions/setup-java@v4
         with:
-          java-version: '1.8'
+          java-version: '23.0.1+11'
           distribution: 'temurin'
           server-id: github
           server-username: GITHUB_ACTOR
@@ -39,7 +39,7 @@ jobs:
           job-status: success
           token: ${{ secrets.HUB_TOKEN }}
       
-      # In this step basically the maven will build the application with the code and given dependency.
+      # In this step, the maven will build the application with the code and given dependency.
       - name: Step 4 - Building our web application with maven.
         run: echo mvn -B package --file pom.xml
 
@@ -47,6 +47,7 @@ jobs:
       - name: Step 5 - List the Ubuntu environment variable.
         run: env
 
+  # Here we have created another job for running the same thing on a windows machine.
   build-on-windows:
     # The type of runner that the job will run on
     runs-on: windows-latest
@@ -66,7 +67,7 @@ jobs:
       - name: Step 3 - Set up the JDK 
         uses: actions/setup-java@v4
         with:
-          java-version: '1.8'
+          java-version: '23.0.1+11'
           distribution: 'temurin'
           server-id: github
           server-username: GITHUB_ACTOR
@@ -75,7 +76,7 @@ jobs:
           job-status: success
           token: ${{ secrets.HUB_TOKEN }}
       
-      # In this step basically the maven will build the application with the code and given dependency.
+      # In this step the maven will build the application with the code and given dependency.
       - name: Step 4 - Building our web application with maven.
         run: echo mvn -B package --file pom.xml
 
