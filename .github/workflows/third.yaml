@@ -45,10 +45,8 @@ jobs:
           echo $ANDROID_SDK_ROOT
           echo 6. where are the selenium jars..?
           echo $SELENIUM_JAR_PATH
-          echo
           echo 7. What is the workspae location
           echo $RUNNER_WORKSPACE
-          echo
           echo 8. who is running this script
           whoami
           echo 9. how is the disk lait out?
