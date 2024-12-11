@@ -1,0 +1,62 @@
+# This is a basic workflow to help you get started with Actions
+
+name: multistep github action file
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # here we are runing this pre-build to check the memory state.
+      - name: Step 1 - Log the pre-build disc space
+        run: df -h
+      
+      # This step will checkout all the code from the main branch.
+      - name: Step 2 - Checkout the main github branch.
+        uses: actions/checkout@v4
+
+      # Setting up the Java Development Kit into this step for building the application.
+      - name: Step 3 - Set up the JDK 
+        uses: actions/setup-java@v4
+        with:
+          java-version: '23'
+      
+      # In this step the maven will build the application with the code and given dependency.
+      - name: Step 4 - Building our web-application with maven.
+        run: echo mvn -B package --file pom.xml
+
+      # This step basically build the application and run the native based test case. 
+      - name: Step 5 - Building the nativ android app
+        run: |
+          echo "here is the ANDROID_SDK_ROOT"
+          echo $ANDROID_SDK_ROOT
+
+      # We have created the selenium step because sometime we need to run the selenium test apart from the native test in the case of java based application.
+      - name: Step 6 - Running our selenium tests
+        run: |
+          echo "The SELENIUM_JAR_PATH"
+          echo $SELENIUM_JAR_PATH
+
+      # This step will find out all the build tools and it's version.
+      - name: Step 7 - Log build tool versions
+        run: |
+          git --version
+          mvn --version
+          ant -version
+          gradle --version
+      
+      # This final step will find out after running all the steps how much memory the process has consumed. 
+      - name: Step 8 - log the post-build disk space.
+        run: |
+          df -h
