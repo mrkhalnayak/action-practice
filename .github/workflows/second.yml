@@ -39,5 +39,5 @@ jobs:
           git --version
           echo "all the build tools with it's version"
           mvn --version
-          gradle --verison
+          gradle --version
           ant -version
