@@ -30,7 +30,7 @@ jobs:
       - name: Step 3 - Set up the JDK 
         uses: actions/setup-java@v4
         with:
-          java-version: '23'
+          java-version: '1.8'
       
       # In this step the maven will build the application with the code and given dependency.
       - name: Step 4 - Building our web-application with maven.
