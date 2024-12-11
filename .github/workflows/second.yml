@@ -40,4 +40,4 @@ jobs:
           echo "all the build tools with it's version"
           mvn --version
           gradle --verison
-          ant --version
+          ant -version
